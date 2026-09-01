@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.monochrome.keeper.app-mergeDebugResources-38:/values-sl/values-sl.xml",
+            "outputFile": "com.monochrome.keeper.app-mergeDebugResources-31:/values-sl/values-sl.xml",
             "map": [
                 {
                     "source": "/home/k/.gradle/caches/transforms-3/a4e9b72f458940e923a11f68548a4d6f/transformed/appcompat-1.6.1/res/values-sl/values-sl.xml",

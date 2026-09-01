@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,10 +24,19 @@ public final class ActivityMainBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
+  public final Button btnBatteryOptimization;
+
+  @NonNull
   public final Button btnForceCheck;
 
   @NonNull
   public final Button btnToggleService;
+
+  @NonNull
+  public final SeekBar intervalSeekBar;
+
+  @NonNull
+  public final TextView intervalValue;
 
   @NonNull
   public final TextView lastActionValue;
@@ -41,6 +51,9 @@ public final class ActivityMainBinding implements ViewBinding {
   public final TextView reactivationCountValue;
 
   @NonNull
+  public final TextView serviceStatusText;
+
+  @NonNull
   public final CardView statusCard;
 
   @NonNull
@@ -52,19 +65,25 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final TextView statusTitle;
 
-  private ActivityMainBinding(@NonNull ScrollView rootView, @NonNull Button btnForceCheck,
-      @NonNull Button btnToggleService, @NonNull TextView lastActionValue,
-      @NonNull TextView lastCheckValue, @NonNull TextView permissionStatus,
-      @NonNull TextView reactivationCountValue, @NonNull CardView statusCard,
+  private ActivityMainBinding(@NonNull ScrollView rootView, @NonNull Button btnBatteryOptimization,
+      @NonNull Button btnForceCheck, @NonNull Button btnToggleService,
+      @NonNull SeekBar intervalSeekBar, @NonNull TextView intervalValue,
+      @NonNull TextView lastActionValue, @NonNull TextView lastCheckValue,
+      @NonNull TextView permissionStatus, @NonNull TextView reactivationCountValue,
+      @NonNull TextView serviceStatusText, @NonNull CardView statusCard,
       @NonNull ImageView statusIcon, @NonNull TextView statusSubtitle,
       @NonNull TextView statusTitle) {
     this.rootView = rootView;
+    this.btnBatteryOptimization = btnBatteryOptimization;
     this.btnForceCheck = btnForceCheck;
     this.btnToggleService = btnToggleService;
+    this.intervalSeekBar = intervalSeekBar;
+    this.intervalValue = intervalValue;
     this.lastActionValue = lastActionValue;
     this.lastCheckValue = lastCheckValue;
     this.permissionStatus = permissionStatus;
     this.reactivationCountValue = reactivationCountValue;
+    this.serviceStatusText = serviceStatusText;
     this.statusCard = statusCard;
     this.statusIcon = statusIcon;
     this.statusSubtitle = statusSubtitle;
@@ -98,6 +117,12 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnBatteryOptimization;
+      Button btnBatteryOptimization = ViewBindings.findChildViewById(rootView, id);
+      if (btnBatteryOptimization == null) {
+        break missingId;
+      }
+
       id = R.id.btnForceCheck;
       Button btnForceCheck = ViewBindings.findChildViewById(rootView, id);
       if (btnForceCheck == null) {
@@ -107,6 +132,18 @@ public final class ActivityMainBinding implements ViewBinding {
       id = R.id.btnToggleService;
       Button btnToggleService = ViewBindings.findChildViewById(rootView, id);
       if (btnToggleService == null) {
+        break missingId;
+      }
+
+      id = R.id.intervalSeekBar;
+      SeekBar intervalSeekBar = ViewBindings.findChildViewById(rootView, id);
+      if (intervalSeekBar == null) {
+        break missingId;
+      }
+
+      id = R.id.intervalValue;
+      TextView intervalValue = ViewBindings.findChildViewById(rootView, id);
+      if (intervalValue == null) {
         break missingId;
       }
 
@@ -134,6 +171,12 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.serviceStatusText;
+      TextView serviceStatusText = ViewBindings.findChildViewById(rootView, id);
+      if (serviceStatusText == null) {
+        break missingId;
+      }
+
       id = R.id.statusCard;
       CardView statusCard = ViewBindings.findChildViewById(rootView, id);
       if (statusCard == null) {
@@ -158,9 +201,10 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((ScrollView) rootView, btnForceCheck, btnToggleService,
-          lastActionValue, lastCheckValue, permissionStatus, reactivationCountValue, statusCard,
-          statusIcon, statusSubtitle, statusTitle);
+      return new ActivityMainBinding((ScrollView) rootView, btnBatteryOptimization, btnForceCheck,
+          btnToggleService, intervalSeekBar, intervalValue, lastActionValue, lastCheckValue,
+          permissionStatus, reactivationCountValue, serviceStatusText, statusCard, statusIcon,
+          statusSubtitle, statusTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

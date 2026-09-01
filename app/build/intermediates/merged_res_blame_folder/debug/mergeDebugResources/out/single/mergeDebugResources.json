@@ -1,42 +1,62 @@
 [
     {
-        "merged": "com.monochrome.keeper.app-debug-40:/drawable_ic_check_circle.xml.flat",
-        "source": "com.monochrome.keeper.app-main-42:/drawable/ic_check_circle.xml"
+        "merged": "com.monochrome.keeper.app-debug-33:/drawable_bg_button_primary.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/drawable/bg_button_primary.xml"
     },
     {
-        "merged": "com.monochrome.keeper.app-debug-40:/layout_activity_main.xml.flat",
-        "source": "com.monochrome.keeper.app-main-42:/layout/activity_main.xml"
+        "merged": "com.monochrome.keeper.app-debug-33:/drawable_bg_button_battery_ok.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/drawable/bg_button_battery_ok.xml"
     },
     {
-        "merged": "com.monochrome.keeper.app-debug-40:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.monochrome.keeper.app-main-42:/drawable/ic_launcher_background.xml"
+        "merged": "com.monochrome.keeper.app-debug-33:/drawable_ic_warning.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/drawable/ic_warning.xml"
     },
     {
-        "merged": "com.monochrome.keeper.app-debug-40:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.monochrome.keeper.app-main-42:/drawable/ic_launcher_foreground.xml"
+        "merged": "com.monochrome.keeper.app-debug-33:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "com.monochrome.keeper.app-debug-40:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.monochrome.keeper.app-main-42:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.monochrome.keeper.app-debug-33:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.monochrome.keeper.app-debug-40:/drawable_bg_button_secondary.xml.flat",
-        "source": "com.monochrome.keeper.app-main-42:/drawable/bg_button_secondary.xml"
+        "merged": "com.monochrome.keeper.app-debug-33:/drawable_bg_button_stop.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/drawable/bg_button_stop.xml"
     },
     {
-        "merged": "com.monochrome.keeper.app-debug-40:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.monochrome.keeper.app-main-42:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.monochrome.keeper.app-debug-33:/drawable_bg_button_battery_warn.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/drawable/bg_button_battery_warn.xml"
     },
     {
-        "merged": "com.monochrome.keeper.app-debug-40:/drawable_bg_code_block.xml.flat",
-        "source": "com.monochrome.keeper.app-main-42:/drawable/bg_code_block.xml"
+        "merged": "com.monochrome.keeper.app-debug-33:/layout_activity_main.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/layout/activity_main.xml"
     },
     {
-        "merged": "com.monochrome.keeper.app-debug-40:/drawable_ic_warning.xml.flat",
-        "source": "com.monochrome.keeper.app-main-42:/drawable/ic_warning.xml"
+        "merged": "com.monochrome.keeper.app-debug-33:/drawable_bg_button_secondary.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/drawable/bg_button_secondary.xml"
     },
     {
-        "merged": "com.monochrome.keeper.app-debug-40:/drawable_bg_button_primary.xml.flat",
-        "source": "com.monochrome.keeper.app-main-42:/drawable/bg_button_primary.xml"
+        "merged": "com.monochrome.keeper.app-debug-33:/drawable_ic_notification.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/drawable/ic_notification.xml"
+    },
+    {
+        "merged": "com.monochrome.keeper.app-debug-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.monochrome.keeper.app-debug-33:/drawable_bg_code_block.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/drawable/bg_code_block.xml"
+    },
+    {
+        "merged": "com.monochrome.keeper.app-debug-33:/drawable_ic_check_circle.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/drawable/ic_check_circle.xml"
+    },
+    {
+        "merged": "com.monochrome.keeper.app-debug-33:/drawable_bg_button_start.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/drawable/bg_button_start.xml"
+    },
+    {
+        "merged": "com.monochrome.keeper.app-debug-33:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.monochrome.keeper.app-main-35:/drawable/ic_launcher_background.xml"
     }
 ]

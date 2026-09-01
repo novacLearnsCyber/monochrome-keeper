@@ -4,37 +4,30 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
-import java.util.concurrent.TimeUnit
 
 /**
- * BroadcastReceiver that re-schedules the MonochromeWorker
+ * BroadcastReceiver that re-starts the MonochromeService
  * after device reboot so the periodic check continues.
  */
 class BootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action == Intent.ACTION_BOOT_COMPLETED) {
-            Log.d("BootReceiver", "Device booted. Re-scheduling MonochromeWorker...")
-            scheduleMonochromeWorker(context)
-        }
-    }
+            Log.d("BootReceiver", "Device booted. Checking if service should restart...")
 
-    companion object {
-        fun scheduleMonochromeWorker(context: Context) {
-            val workRequest = PeriodicWorkRequestBuilder<MonochromeWorker>(
-                15, TimeUnit.MINUTES
-            ).build()
-
-            WorkManager.getInstance(context).enqueueUniquePeriodicWork(
-                MonochromeWorker.WORK_NAME,
-                ExistingPeriodicWorkPolicy.KEEP,
-                workRequest
+            val prefs = context.getSharedPreferences(
+                MonochromeService.PREFS_NAME, Context.MODE_PRIVATE
             )
 
-            Log.d("BootReceiver", "MonochromeWorker scheduled (every 15 minutes)")
+            // Only restart if the service was running before reboot
+            val wasRunning = prefs.getBoolean(MonochromeService.KEY_SERVICE_RUNNING, true)
+
+            if (wasRunning) {
+                Log.d("BootReceiver", "Re-starting MonochromeService...")
+                MonochromeService.start(context)
+            } else {
+                Log.d("BootReceiver", "Service was stopped. Not restarting.")
+            }
         }
     }
 }

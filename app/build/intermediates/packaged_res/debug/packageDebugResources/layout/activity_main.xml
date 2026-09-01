@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:text="@string/app_name"
@@ -25,12 +25,13 @@
             android:textSize="28sp" />
 
         <TextView
+            android:id="@+id/serviceStatusText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="Menține modul monochrome activ"
-            android:textColor="@color/text_secondary"
+            android:text="🟢 Serviciu activ"
+            android:textColor="@color/status_active"
             android:textSize="14sp" />
 
         <!-- Status Card -->
@@ -75,6 +76,75 @@
                     android:text="Modul grayscale este pornit"
                     android:textColor="@color/text_secondary"
                     android:textSize="14sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Interval Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="⏱ Interval Verificare"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/intervalValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-bold"
+                    android:text="15 minute"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="24sp" />
+
+                <SeekBar
+                    android:id="@+id/intervalSeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:max="9"
+                    android:progress="5"
+                    android:progressTint="@color/accent_blue"
+                    android:thumbTint="@color/accent_blue" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="1 min"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="60 min"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="11sp" />
+                </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -126,7 +196,6 @@
                         android:textSize="14sp" />
                 </LinearLayout>
 
-                <!-- Divider -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -154,10 +223,11 @@
                         android:layout_height="wrap_content"
                         android:text="Nicio acțiune"
                         android:textColor="@color/text_primary"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:maxWidth="180dp"
+                        android:gravity="end" />
                 </LinearLayout>
 
-                <!-- Divider -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -245,18 +315,32 @@
             android:fontFamily="sans-serif-medium"
             android:text="🔍 Verifică Acum"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btnToggleService"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/bg_button_secondary"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_button_stop"
             android:fontFamily="sans-serif-medium"
             android:text="⏹ Oprește Serviciul"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btnBatteryOptimization"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_button_battery_warn"
+            android:fontFamily="sans-serif-medium"
+            android:text="⚠️ Dezactivează Optimizarea Bateriei"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textAllCaps="false" />
 
         <!-- Footer -->
         <TextView
@@ -264,7 +348,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="Verificare automată la fiecare 15 minute\nFuncționează și în background"
+            android:text="Funcționează în background\nNotificare la fiecare reactivare"
             android:textColor="@color/text_tertiary"
             android:textSize="12sp"
             android:lineSpacingExtra="4dp" />

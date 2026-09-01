@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.monochrome.keeper.app-mergeDebugResources-38:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.monochrome.keeper.app-mergeDebugResources-31:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "/home/k/.gradle/caches/transforms-3/c02651e70aaa3d8c15764d180fa62a2f/transformed/material-1.11.0/res/values-night-v8/values-night-v8.xml",

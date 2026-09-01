@@ -6,11 +6,21 @@
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
 
-    <!-- Needed to restart worker after device boot -->
+    <!-- Needed to restart service after device boot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <!-- For foreground service notification on Android 13+ -->
+    <!-- For notification on Android 13+ -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Foreground service permission -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <!-- Keep CPU awake for reliable checks -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- To request ignoring battery optimizations -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <application
         android:allowBackup="true"
@@ -30,7 +40,14 @@
             </intent-filter>
         </activity>
 
-        <!-- Boot receiver to restart the periodic worker -->
+        <!-- Foreground service for reliable periodic checks -->
+        <service
+            android:name=".MonochromeService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+
+        <!-- Boot receiver to restart service after reboot -->
         <receiver
             android:name=".BootReceiver"
             android:enabled="true"
