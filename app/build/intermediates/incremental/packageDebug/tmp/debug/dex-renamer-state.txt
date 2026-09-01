@@ -1,0 +1,13 @@
+#Tue Sep 01 08:19:45 EDT 2026
+base.0=/home/k/Desktop/androidAPP/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/home/k/Desktop/androidAPP/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.2=/home/k/Desktop/androidAPP/app/build/intermediates/dex/debug/mergeProjectDexDebug/3/classes.dex
+base.3=/home/k/Desktop/androidAPP/app/build/intermediates/dex/debug/mergeProjectDexDebug/4/classes.dex
+path.0=classes.dex
+path.1=0/classes.dex
+path.2=3/classes.dex
+path.3=4/classes.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex
+renamed.2=classes3.dex
+renamed.3=classes4.dex
