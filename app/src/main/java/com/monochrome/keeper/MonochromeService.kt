@@ -27,6 +27,7 @@ class MonochromeService : Service() {
         const val KEY_LAST_ACTION = "last_action"
         const val KEY_REACTIVATION_COUNT = "reactivation_count"
         const val KEY_SERVICE_RUNNING = "service_running"
+        const val KEY_NOTIFICATIONS_ENABLED = "notifications_enabled"
         const val DEFAULT_INTERVAL = 15
         const val ACTION_STOP = "com.monochrome.keeper.STOP"
 
@@ -138,8 +139,11 @@ class MonochromeService : Service() {
                 val count = prefs.getInt(KEY_REACTIVATION_COUNT, 0) + 1
                 editor.putInt(KEY_REACTIVATION_COUNT, count)
 
-                // Send notification ONLY when re-activated
-                NotificationHelper.sendReactivatedNotification(this)
+                // Send notification ONLY when re-activated AND notifications are enabled
+                val notificationsEnabled = prefs.getBoolean(KEY_NOTIFICATIONS_ENABLED, true)
+                if (notificationsEnabled) {
+                    NotificationHelper.sendReactivatedNotification(this)
+                }
             } else {
                 Log.e(TAG, "[$timestamp] EROARE la reactivare!")
                 editor.putString(KEY_LAST_ACTION, "❌ Eroare reactivare ($timestamp)")

@@ -11,6 +11,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -65,6 +66,9 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final TextView statusTitle;
 
+  @NonNull
+  public final SwitchCompat switchNotifications;
+
   private ActivityMainBinding(@NonNull ScrollView rootView, @NonNull Button btnBatteryOptimization,
       @NonNull Button btnForceCheck, @NonNull Button btnToggleService,
       @NonNull SeekBar intervalSeekBar, @NonNull TextView intervalValue,
@@ -72,7 +76,7 @@ public final class ActivityMainBinding implements ViewBinding {
       @NonNull TextView permissionStatus, @NonNull TextView reactivationCountValue,
       @NonNull TextView serviceStatusText, @NonNull CardView statusCard,
       @NonNull ImageView statusIcon, @NonNull TextView statusSubtitle,
-      @NonNull TextView statusTitle) {
+      @NonNull TextView statusTitle, @NonNull SwitchCompat switchNotifications) {
     this.rootView = rootView;
     this.btnBatteryOptimization = btnBatteryOptimization;
     this.btnForceCheck = btnForceCheck;
@@ -88,6 +92,7 @@ public final class ActivityMainBinding implements ViewBinding {
     this.statusIcon = statusIcon;
     this.statusSubtitle = statusSubtitle;
     this.statusTitle = statusTitle;
+    this.switchNotifications = switchNotifications;
   }
 
   @Override
@@ -201,10 +206,16 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.switchNotifications;
+      SwitchCompat switchNotifications = ViewBindings.findChildViewById(rootView, id);
+      if (switchNotifications == null) {
+        break missingId;
+      }
+
       return new ActivityMainBinding((ScrollView) rootView, btnBatteryOptimization, btnForceCheck,
           btnToggleService, intervalSeekBar, intervalValue, lastActionValue, lastCheckValue,
           permissionStatus, reactivationCountValue, serviceStatusText, statusCard, statusIcon,
-          statusSubtitle, statusTitle);
+          statusSubtitle, statusTitle, switchNotifications);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

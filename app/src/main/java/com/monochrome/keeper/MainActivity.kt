@@ -18,6 +18,7 @@ import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat
 import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnForceCheck: Button
     private lateinit var btnBatteryOptimization: Button
     private lateinit var serviceStatusText: TextView
+    private lateinit var switchNotifications: SwitchCompat
 
     private lateinit var prefs: SharedPreferences
     private val handler = Handler(Looper.getMainLooper())
@@ -80,8 +82,10 @@ class MainActivity : AppCompatActivity() {
         btnForceCheck = findViewById(R.id.btnForceCheck)
         btnBatteryOptimization = findViewById(R.id.btnBatteryOptimization)
         serviceStatusText = findViewById(R.id.serviceStatusText)
+        switchNotifications = findViewById(R.id.switchNotifications)
 
         setupIntervalSeekBar()
+        setupNotificationSwitch()
         setupButtons()
 
         // Auto-start service on first launch
@@ -155,6 +159,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupNotificationSwitch() {
+        // Restore saved state (default: ON)
+        val enabled = prefs.getBoolean(MonochromeService.KEY_NOTIFICATIONS_ENABLED, true)
+        switchNotifications.isChecked = enabled
+
+        switchNotifications.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean(MonochromeService.KEY_NOTIFICATIONS_ENABLED, isChecked).apply()
+        }
+    }
+
     private fun setupButtons() {
         btnForceCheck.setOnClickListener {
             forceCheck()
@@ -206,8 +220,10 @@ class MainActivity : AppCompatActivity() {
                     putString(MonochromeService.KEY_LAST_ACTION, "🔄 Reactivat manual ($timestamp)")
                     val count = prefs.getInt(MonochromeService.KEY_REACTIVATION_COUNT, 0) + 1
                     putInt(MonochromeService.KEY_REACTIVATION_COUNT, count)
-                    // Send notification
-                    NotificationHelper.sendReactivatedNotification(this@MainActivity)
+                    // Send notification only if enabled
+                    if (prefs.getBoolean(MonochromeService.KEY_NOTIFICATIONS_ENABLED, true)) {
+                        NotificationHelper.sendReactivatedNotification(this@MainActivity)
+                    }
                 } else {
                     putString(MonochromeService.KEY_LAST_ACTION, "❌ Eroare reactivare ($timestamp)")
                 }

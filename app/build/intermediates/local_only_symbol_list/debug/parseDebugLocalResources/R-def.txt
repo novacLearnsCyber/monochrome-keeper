@@ -45,6 +45,7 @@ id statusCard
 id statusIcon
 id statusSubtitle
 id statusTitle
+id switchNotifications
 layout activity_main
 mipmap ic_launcher
 mipmap ic_launcher_round

@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/k/.gradle/daemon/8.5/com.monochrome.keeper.app-mergeDebugResources-32:/layout/activity_main.xml",
+        "source": "/home/k/.gradle/daemon/8.5/com.monochrome.keeper.app-main-35:/layout/activity_main.xml"
+    },
+    {
         "merged": "com.monochrome.keeper.app-mergeDebugResources-32:/layout/activity_main.xml",
         "source": "com.monochrome.keeper.app-main-35:/layout/activity_main.xml"
     }
